@@ -10,35 +10,34 @@ import android.widget.TextView;
 
 import com.lmorocho.requestapp.R;
 import com.lmorocho.requestapp.models.Solicitud;
-import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class RequestAdapter extends RecyclerView.Adapter<RequestAdapter.ViewHolder> {
+public class SolicitudAdapter extends RecyclerView.Adapter<SolicitudAdapter.ViewHolder> {
 
     private List<Solicitud> solicitudes;
 
-    public RequestAdapter(){
+    public SolicitudAdapter() {
         this.solicitudes = new ArrayList<>();
     }
 
-    public void setRequest(List<Solicitud> solicitudes){
+    public void setSolicitudes(List<Solicitud> solicitudes) {
         this.solicitudes = solicitudes;
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder{
+    public class ViewHolder extends RecyclerView.ViewHolder {
 
-        public ImageView fotoImage;
-        public TextView tituloText;
-        public TextView emailText;
+        public ImageView imageView;
+        public TextView tipoText;
+        public TextView correoText;
         public TextView descripcionText;
 
         public ViewHolder(View itemView) {
             super(itemView);
-            fotoImage = itemView.findViewById(R.id.foto_image);
-            tituloText = itemView.findViewById(R.id.title_text);
-            emailText = itemView.findViewById(R.id.email_text);
+            imageView = itemView.findViewById(R.id.photo_image);
+            tipoText = itemView.findViewById(R.id.title_text);
+            correoText = itemView.findViewById(R.id.email_text);
             descripcionText = itemView.findViewById(R.id.description_text);
         }
     }
@@ -55,8 +54,8 @@ public class RequestAdapter extends RecyclerView.Adapter<RequestAdapter.ViewHold
 
         Solicitud solicitud = this.solicitudes.get(position);
 
-        viewHolder.tituloText.setText(solicitud.getTipo());
-        viewHolder.emailText.setText(solicitud.getEmail());
+        viewHolder.tipoText.setText(solicitud.getTipo());
+        viewHolder.correoText.setText(solicitud.getUsuario().getCorreo());
         viewHolder.descripcionText.setText(solicitud.getDescripcion());
 
 //        String url = ApiService.API_BASE_URL + "/productos/images/" + solicitud.getImagen();
