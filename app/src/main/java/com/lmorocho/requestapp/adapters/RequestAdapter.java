@@ -55,10 +55,10 @@ public class RequestAdapter extends RecyclerView.Adapter<RequestAdapter.ViewHold
 
         Solicitud solicitud = this.solicitudes.get(position);
 
-//        viewHolder.tituloText.setText(solicitud.getTitulo());
-//        viewHolder.emailText.setText(solicitud.getEmail());
-//        viewHolder.descripcionText.setText(solicitud.getDescripcion());
-//
+        viewHolder.tituloText.setText(solicitud.getTipo());
+        viewHolder.emailText.setText(solicitud.getEmail());
+        viewHolder.descripcionText.setText(solicitud.getDescripcion());
+
 //        String url = ApiService.API_BASE_URL + "/productos/images/" + solicitud.getImagen();
 //        Picasso.with(viewHolder.itemView.getContext()).load(url).into(viewHolder.fotoImage);
 
