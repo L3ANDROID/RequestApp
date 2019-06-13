@@ -1,10 +1,13 @@
 package com.lmorocho.requestapp.activities;
 
+import android.content.Intent;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.View;
 import android.widget.Toast;
 
 import com.lmorocho.requestapp.R;
@@ -23,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = MainActivity.class.getSimpleName();
 
+    private FloatingActionButton createSolicitud;
     private RecyclerView solicitudesList;
 
     @Override
@@ -30,12 +34,26 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        createSolicitud = findViewById(R.id.add_solicitud_button);
+
+        createSolicitud.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                goToRegister();
+            }
+        });
         solicitudesList = findViewById(R.id.solicitudes_list);
         solicitudesList.setLayoutManager(new LinearLayoutManager(this));
 
         solicitudesList.setAdapter(new SolicitudAdapter());
 
         initialize();
+    }
+
+    public void goToRegister() {
+        Intent intent = new Intent(this, RegisterActivity.class);
+        startActivity(intent);
+        finish();
     }
 
     private void initialize() {
